@@ -1,3 +1,47 @@
+
+
+# A distilBERT based Phishing Email Detection Model
+
+## Model Overview
+This model is based on DistilBERT and has been fine-tuned for multilabel classification of Emails and URLs as safe or potentially phishing.
+
+## Key Specifications
+- __Base Architecture:__ DistilBERT
+- __Task:__ Multilabel Classification
+- __Fine-tuning Framework:__ Hugging Face Trainer API
+- __Training Duration:__ 3 epochs
+
+## Performance Metrics
+- __Accuracy:__ 99.58
+- __F1-score:__ 99.579
+- __Precision:__ 99.583
+- __Recall:__ 99.58
+
+## Dataset Details
+
+The model was trained on a custom dataset of Emails and URLs labeled as legitimate or phishing. The dataset is available at [`cybersectony/PhishingEmailDetectionv2.0`](https://huggingface.co/datasets/cybersectony/PhishingEmailDetectionv2.0) on the Hugging Face Hub.
+
+
+## Usage Guide
+
+## Installation
+
+```bash
+pip install transformers
+pip install torch
+pip install gradio
+```
+
+## Possible Issue
+
+If you receive a UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy then run the following:
+
+```python
+pip install "numpy>=1.16.5,<1.23.0"
+```
+## Quick Start
+
+```python
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 #tokenizer = AutoTokenizer.from_pretrained("cybersectony/phishing-email-detection-distilbert_v2.4.1")
 import torch
@@ -60,3 +104,4 @@ demo.launch(share=False)
 
 # Open in browser manually
 webbrowser.open("http://127.0.0.1:7860")
+```
